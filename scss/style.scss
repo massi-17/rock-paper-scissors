@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+@import 'utilities';
+@import 'colors';
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+	height: 100vh;
+	width: 100%;
+	color: white;
+	overflow: hidden;
+}
+#modal-overlay {
+	height: 100vh;
+	width: 100%;
+	background-color: white;
+	display: none;
+
+	.modal-container {
+		@include flexCol;
+		justify-content: flex-start;
+		gap: 20%;
+		background-color: white;
+		height: 100vh;
+		width: 100%;
+
+		h1 {
+			padding: 15px 0;
+			text-align: center;
+			color: $DarkText;
+			text-transform: uppercase;
+		}
+		img {
+		}
+		button {
+			position: absolute;
+			bottom: 20px;
+
+			cursor: pointer;
+			background: none;
+			border: none;
+			img {
+				width: 20px;
+			}
+		}
+	}
+}
+#wrapper {
+	@include flexCenter;
+
+	margin: 0 auto;
+	padding: 10px 0;
+	height: 100vh;
+	width: 90%;
+
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: 4rem;
+	max-width: 900px;
+}
+header {
+	width: 100%;
+	padding: 0 0.7rem;
+
+	border: 3px solid $HeaderOutline;
+	border-radius: 10px;
+	@include flexCenter;
+	justify-content: space-between;
+	.logo {
+		padding: 1rem;
+		img {
+			width: 60%;
+		}
+	}
+	.score-container {
+		border-radius: 10px;
+		padding: 0.4rem 1.8rem;
+		background-color: white;
+		@include flexCenter;
+		flex-direction: column;
+		span:first-child {
+			font-weight: 600;
+			text-transform: uppercase;
+			color: $ScoreText;
+			letter-spacing: 1px;
+			font-size: 0.7rem;
+		}
+		span:nth-child(2) {
+			font-weight: 700;
+			color: $DarkText;
+			font-size: 2.5em;
+		}
+	}
+}
+main {
+	@include flexCenter;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+	max-width: 400px;
+	.bg-main {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		img {
+			width: 95%;
+			aspect-ratio: 1;
+		}
+	}
+	.shapes {
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+}
+.icon-container {
+	@include flexCenter;
+	width: 140px;
+	height: 140px;
+	border-radius: 50%;
+	aspect-ratio: 1/1;
+	background-color: #1a2946;
+	z-index: 999;
+}
+.container-cpu {
+	@include flexCenter;
+	flex-direction: column;
+	display: none;
+}
+.container-user {
+	@include flexCenter;
+	flex-direction: column;
+	transition: opacity 1s;
+	cursor: crosshair;
+}
+.cpu-outline {
+	text-transform: uppercase !important;
+	padding: 1rem;
+	letter-spacing: 2px;
+	z-index: 999 !important;
+}
+.hidden {
+	display: none;
+}
+#cpu {
+	background-color: #1a2946;
+}
+
+.paper {
+	@include bgIcon;
+	background-image: url('../images/icon-paper.svg');
+	border: 15px solid #5470f4;
+	box-shadow: 0 5px 0px 1px rgba(41, 69, 194, 1),
+		inset 0 4px 0px 1px rgba(185, 190, 204, 1);
+}
+.scissors {
+	@include bgIcon;
+	background-image: url('../images/icon-scissors.svg');
+
+	border: 15px solid #ee9e16;
+	box-shadow: 0 5px 0px 1px rgba(199, 107, 26, 1),
+		inset 0 4px 0px 1px rgba(185, 190, 204, 1);
+}
+.rock {
+	@include bgIcon;
+	background-image: url('../images/icon-rock.svg');
+	border: 15px solid #db2e4c;
+	box-shadow: 0 5px 0px 1px rgba(159, 21, 52, 1),
+		inset 0 4px 0px 1px rgba(185, 190, 204, 1);
+}
+.you-picked {
+	position: relative;
+	text-transform: uppercase !important;
+	padding: 1rem;
+	letter-spacing: 2px;
+}
+
+.winner-paper {
+	@include transitionIndexWinner;
+	box-shadow: 0 5px 0px 1px rgba(41, 69, 194, 1),
+		inset 0 4px 0px 1px rgba(185, 190, 204, 1),
+		0px 0px 0px 18px rgba(45, 62, 92, 0.5),
+		0px 0px 0px 45px rgba(42, 59, 89, 0.5),
+		0px 0px 0px 80px rgba(35, 54, 86, 0.7);
+}
+.winner-scissors {
+	@include transitionIndexWinner;
+	box-shadow: 0 5px 0px 1px rgba(199, 107, 26, 1),
+		inset 0 4px 0px 1px rgba(185, 190, 204, 1),
+		0px 0px 0px 18px rgba(45, 62, 92, 0.5),
+		0px 0px 0px 45px rgba(42, 59, 89, 0.5),
+		0px 0px 0px 80px rgba(35, 54, 86, 0.7);
+}
+.winner-rock {
+	@include transitionIndexWinner;
+	box-shadow: 0 5px 0px 1px rgba(159, 21, 52, 1),
+		inset 0 4px 0px 1px rgba(185, 190, 204, 1),
+		0px 0px 0px 18px rgba(45, 62, 92, 0.5),
+		0px 0px 0px 45px rgba(42, 59, 89, 0.5),
+		0px 0px 0px 80px rgba(35, 54, 86, 0.7);
+}
+#result-container {
+	@include flexCol;
+	gap: 1rem;
+
+	#result {
+		text-transform: uppercase;
+		font-size: 3rem;
+	}
+	button {
+		visibility: hidden;
+		@include button;
+		background-color: white;
+		color: $DarkText;
+		font-weight: 700;
+		box-shadow: 5px 5px 25px 0 rgba(10, 10, 42, 0.8);
+		padding: 1rem 4.5rem;
+	}
+	button:hover {
+		box-shadow: none;
+	}
+}
+footer {
+	position: absolute;
+	bottom: 10px;
+
+	@include flexCenter;
+	gap: 3%;
+	button {
+		@include button;
+		white-space: nowrap;
+	}
+	button:hover {
+		border: 1px solid $HeaderOutline;
+		color: $DarkText;
+	}
+}
+
+@media (min-width: 501px) {
+	#wrapper {
+		justify-content: space-between;
+	}
+	footer {
+		position: relative;
+	}
+}

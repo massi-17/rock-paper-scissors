@@ -1,0 +1,30 @@
+@mixin flexCenter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+@mixin flexCol {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+@mixin button {
+	border: 1px solid white;
+	color: white;
+	background: none;
+	border-radius: 10px;
+	padding: 1rem 2.5rem;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	cursor: pointer;
+	transition: all 300ms;
+}
+@mixin transitionIndexWinner {
+	transition: box-shadow 1s;
+	z-index: 2;
+}
+@mixin bgIcon {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #efefef !important;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="mediaqueries.css" />
+		<title>Rock Paper Scissors</title>
+	</head>
+	<body>
+		<div id="modal-overlay">
+			<div class="modal-container">
+				<h1>rules</h1>
+				<img src="images/image-rules.svg" alt="" />
+				<button id="close"><img src="images/close1.png" alt="" /></button>
+			</div>
+		</div>
+		<div id="wrapper">
+			<header>
+				<div class="logo">
+					<img src="images/logo.svg" alt="" />
+				</div>
+				<div class="score-container">
+					<span>score</span>
+					<span id="points"></span>
+				</div>
+			</header>
+			<main>
+				<div class="bg-main"><img src="images/bg-triangle.svg" alt="" /></div>
+				<div class="shapes">
+					<div class="container-user">
+						<div class="icon-container paper" id="paper"></div>
+						<span class="cpu-outline hidden">you picked</span>
+					</div>
+					<div class="container-user">
+						<div class="icon-container scissors" id="scissors"></div>
+						<span class="cpu-outline hidden">you picked</span>
+					</div>
+
+					<div class="container-user">
+						<div class="icon-container rock" id="rock"></div>
+						<span class="cpu-outline hidden">you picked</span>
+					</div>
+					<div class="container-cpu">
+						<div class="icon-container" id="cpu"></div>
+						<span class="cpu-outline">the house picked</span>
+					</div>
+				</div>
+			</main>
+			<div id="result-container">
+				<h1 id="result"></h1>
+				<button id="play-again">play again</button>
+			</div>
+			<footer>
+				<button class="rules">rules</button>
+				<button class="reset">reset score</button>
+			</footer>
+		</div>
+
+		<script src="app.js"></script>
+	</body>
+</html>
